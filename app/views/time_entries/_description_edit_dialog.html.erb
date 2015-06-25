@@ -1,0 +1,18 @@
+<div class="modal fade " id="edit_time_entry_comment_dialog" tabindex="-1" role="dialog" aria-labelledby="edit_time_entry_comment_dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Edit Comment</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= text_area_tag('edit_time_entry_comment_text_area',nil,{rows:10, cols:40, style:"resize: none; width:100%"}) %>
+        <div id="edit_time_entry_comment_entry_id" style="display:none" data-entry-id=""></div>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button> 
+      </div>
+
+    </div>
+  </div>
+</div>

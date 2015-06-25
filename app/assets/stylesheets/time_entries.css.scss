@@ -1,0 +1,27 @@
+// Place all the styles related to the TimeEntries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.time_entry {
+	width:50px;	
+}
+
+.locked{
+	background-color:#fed;
+}
+.unlocked{
+	background-color:#efe;
+}
+
+.time_entry_table{
+	margin-bottom:0px;
+}
+
+.time_entry_accordion_panel{
+	margin-top:0px;
+}
+.time_entry_accordion_body{
+	padding:0px;
+}
+ 

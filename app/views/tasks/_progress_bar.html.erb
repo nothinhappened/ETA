@@ -1,0 +1,13 @@
+<% percent = @task.percent_done %>
+<% percent_formatted = percent > 100 ? 100 : percent %>
+<% bar_class = percent < 100 ? 'progress-bar' : 'progress-bar progress-bar-danger' %>
+
+<% if @task.task_time.blank? || @task.task_time == 0 %>
+    <span> <%= @task.time_spent_on_task %> / 0 Hours</span>
+<% else %>
+    <div class="progress">
+      <div class="<%=bar_class%>" role="progressbar" aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_formatted%>%;">
+      <span><%= @task.time_spent_on_task %> / <%= @task.task_time || 0 %> Hours - <%=percent %>%</span>
+      </div>
+    </div>
+<% end %>

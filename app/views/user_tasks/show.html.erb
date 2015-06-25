@@ -1,0 +1,12 @@
+<% user = @user_task.user %>
+<% task = @user_task.task %>
+<% provide(:title, user.full_name + "'s work on " + task.name) %>
+
+<h2><%=user.full_name%>'s work on <%=task.name%></h2>
+
+<% table_headers = ['Date','Task Spent','Description'] %>
+<% table_contents = @user_task.time_entries.map { |time_entry| [[time_entry.start_time],[time_entry.get_duration.to_i.round(2)],[add_message_if_empty(time_entry.description)]] } %>
+<% table_contents.sort!{|a,b| a[0] <=> b[0]} %>
+<% empty_message = user.full_name + ' has not worked on this task at all.'%>
+
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents, empty_message:empty_message} %>

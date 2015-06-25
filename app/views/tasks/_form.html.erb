@@ -1,0 +1,57 @@
+<%= form_tag url_local, method: method_local, name: 'tasks_create_form' do %>
+    <% users_selected_array = get_users_selected_array %>
+    <% users_unselected_array = get_users_unselected_array  %>
+    <% if @task.errors.any? %>
+        <div id="error_explanation">
+          <strong><%= pluralize(@task.errors.count, 'error') %> prohibited this task from being saved:</strong>
+          <ul>
+            <% @task.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <p>
+      <%= label_tag :name %><br />
+      <%= text_field_tag :name, @task.name, style: 'width:200px;'%>
+    </p>
+    <p>
+      <%= label_tag :description %><br />
+      <%= text_area_tag :description, @task.description, style: 'width:200px;'%>
+    </p>
+    <p>
+        <%= label_tag :project %><br />
+        <% projects_list = Project.by_organization(current_user.organization_id).map { |project| [project.title,project.id]} %>
+        <%= select_tag :project_id, options_for_select(projects_list,@task.project_id), style: 'width:200px;' %>
+    </p>
+    <p>
+      <%= label_tag 'Hours for task' %><br />
+      <%= text_field_tag :task_time, @task.task_time,  style: 'width:200px;', :placeholder => 'e.g. 2.5'%>
+    </p>
+
+
+
+    <%= hidden_field_tag 'selected_users_json' %>
+    <table>
+      <tr>
+        <td>
+          <%= label_tag 'Unassigned Users' %><br>
+          <%= select_tag(:user, options_for_select(users_unselected_array), multiple: true, name: 'unselected_users', style: 'width:200px; height: 300px;') %>
+        </td>
+        <td>
+          <input type="button" onClick="lb_move(this.form.unselected_users,this.form.selected_users)" value="->">
+          <br/>
+          <input type="button" onClick="lb_move(this.form.selected_users,this.form.unselected_users)" value="<-">
+        </td>
+        <td>
+          <%= label_tag 'Assigned Users' %><br>
+          <%= select_tag(:selected_users, options_for_select(users_selected_array), multiple:true, name:'selected_users', style: 'width:200px; height: 300px;') %>
+        </td>
+      </tr>
+    </table>
+    <br/>
+    <p>
+      <input type="button" onClick="newTaskSubmitForm()" value="Submit">
+    </p>
+<% end %>

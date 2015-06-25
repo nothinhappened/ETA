@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="div6 offset3 form-signin">
+    <%= form_for(@user) do |f| %>
+        <p><%= render "shared/error_messages",  object: f.object%></p>
+          <p><%= f.text_field :first_name, placeholder: 'First Name' %></p>
+          <p><%= f.text_field :last_name, placeholder: 'Last Name' %></p>
+          <p><%= f.text_field :email, placeholder: 'Email'%></p>
+          <p><%= f.select( :user_type, User.user_types.map.with_index{|user_type,i| [user_type,i]}) %></p>
+          <p><%= f.password_field :password , placeholder: 'Password'%></p>
+          <p><%= f.password_field :password_confirmation, placeholder: 'Re-enter Password'%></p>
+        <br>
+        <%= f.submit %>
+    <% end %>
+  </div>
+</div>

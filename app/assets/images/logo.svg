@@ -1,0 +1,116 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="400px" height="400px" viewBox="0 0 400 400">
+<defs>
+<filter id="Filter_1" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+<feFlood flood-color="#00E4FF" flood-opacity="1" in="SourceGraphic" result="result1"/>
+
+<feComposite in2="SourceGraphic" in="result1" operator="in" result="result2"/>
+
+<feGaussianBlur in="result2" stdDeviation="0.3333333333333333,0.3333333333333333" result="result3"/>
+
+<feOffset dx="0.7071067811865476" dy="0.7071067811865475" in="result3" result="result4"/>
+
+<feComposite in2="result4" in="SourceGraphic" operator="over" result="result5"/>
+</filter>
+
+<g id="logo_0_Layer3_0_FILL">
+<path fill="#FF6600" stroke="none" d="
+M 28.05 26.8
+Q 15.05 26.15 0 19.45 11.55 55 2.6 85 35.15 76.05 65.2 85.05 61.45 71.45 60.85 58.3 59.95 39.95 65.15 22.45 46.15 27.65 28.05 26.8
+M 23.15 36.2
+Q 27.35 33.65 32.55 33.5 32.85 33.5 33.15 33.5 41.4 33.5 47.25 39.4 53.15 45.25 53.15 53.5 53.15 61.8 47.25 67.65 45.35 69.55 43.15 70.85 38.7 73.5 33.15 73.5 32.85 73.5 32.55 73.5 24.65 73.3 19 67.65 13.15 61.8 13.15 53.5 13.15 45.25 19 39.4 20.95 37.45 23.15 36.2
+M 0 19.45
+Q 15.05 26.15 28.05 26.8 46.15 27.65 65.15 22.45 78.1 21.2 86.25 0.05 53.7 9 23.65 0 22.15 14.55 0 19.45
+M 86.3 62.65
+Q 78.3 33.65 86.25 0.05 78.1 21.2 65.15 22.45 59.95 39.95 60.85 58.3 61.45 71.45 65.2 85.05 71.35 65.75 86.3 62.65 Z"/>
+
+<path fill="#FFFFFF" stroke="none" d="
+M 32.55 33.5
+Q 27.35 33.65 23.15 36.2 20.95 37.45 19 39.4 13.15 45.25 13.15 53.5 13.15 61.8 19 67.65 24.65 73.3 32.55 73.5 32.85 73.5 33.15 73.5 38.7 73.5 43.15 70.85 45.35 69.55 47.25 67.65 53.15 61.8 53.15 53.5 53.15 45.25 47.25 39.4 41.4 33.5 33.15 33.5 32.85 33.5 32.55 33.5
+M 28.7 45.85
+L 33.15 53.55 28.7 45.85 Z"/>
+</g>
+
+<path id="logo_0_Layer3_0_1_STROKES" stroke="#CC3300" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 65.2 85.05
+Q 71.35 65.75 86.3 62.65 78.3 33.65 86.25 0.05 78.1 21.2 65.15 22.45 59.95 39.95 60.85 58.3 61.45 71.45 65.2 85.05 35.15 76.05 2.6 85 11.55 55 0 19.45 22.15 14.55 23.65 0 53.7 9 86.25 0.05
+M 53.15 53.5
+Q 53.15 61.8 47.25 67.65 45.35 69.55 43.15 70.85 38.7 73.5 33.15 73.5 32.85 73.5 32.55 73.5 24.65 73.3 19 67.65 13.15 61.8 13.15 53.5 13.15 45.25 19 39.4 20.95 37.45 23.15 36.2 27.35 33.65 32.55 33.5 32.85 33.5 33.15 33.5 41.4 33.5 47.25 39.4 53.15 45.25 53.15 53.5 Z
+M 0 19.45
+Q 15.05 26.15 28.05 26.8 46.15 27.65 65.15 22.45
+M 28.7 45.85
+L 33.15 53.55"/>
+
+<path id="minute_hand_0_Layer0_0_1_STROKES" stroke="#CC3300" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 0 15.7
+L 0 0"/>
+
+<path id="second_hand_0_Layer0_0_1_STROKES" stroke="#CC3300" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 0 15.7
+L 0 0"/>
+
+<font horiz-adv-x="2048">
+<!--  Font Name: Forte
+Vendor ID: MONO
+Digitized data copyright The Monotype Corporation 1991-1995. All rights reserved. Forte™ is a trademark of The Monotype Corporation which may be registered in certain jurisdictions.
+http://www.agfamonotype.com/html/type/license.html
+URL for more Information: http://www.adobe.com/go/font_vendor_id?ID=MONO&Name=Forte&PSName=ForteMT&applanguage=en_US-->
+<font-face font-family="Forte_Regular" units-per-em="2048" ascent="1802" descent="438"/>
+
+<glyph unicode="E" horiz-adv-x="1260" d="
+M 883 453
+L 518 455 518 430
+Q 518 357 560 297 602 238 653 238 705 238 804 276 902 314 1028 385
+L 1063 406
+Q 1099 426 1112 436 1171 473 1186 473 1204 473 1204 440 1204 404 1191 358 1178 312 1158 269 1138 227 1118 209 1061 158 923 98 785 38 643 4 595 -6 555 -6 418 -6 305 49 191 105 129 202 66 299 66 418 66 516 107 634 148 752 222 869 296 987 389 1083 470 1167 570 1235 670 1304 765 1341 859 1378 938 1378 1062 1378 1151 1307 1239 1237 1239 1137 1239 1093 1223 1041 1207 989 1180 950 1152 908 1097 868 1042 828 973 799 890 766 831 766 772 766 772 795 772 812 805 848 841 880 874 936 906 995 930 1075 954 1155 954 1200 954 1237 932 1237 897 1237 806 1160 715 1083 662 1008 612 938 580 865 548 793 537 723
+L 1071 723
+Q 1159 723 1159 678 1159 636 1061 541 964 453 883 453 Z"/>
+
+<glyph unicode="C" horiz-adv-x="1260" d="
+M 799 725
+Q 838 825 866 949 893 1074 893 1155 893 1208 868 1208 845 1208 784 1147 693 1049 622 921 551 794 513 661 475 528 475 401 475 301 497 264 518 227 578 227 630 227 707 256 881 325 1075 453 1161 508 1184 508 1217 508 1217 475
+L 1217 473
+Q 1212 428 1186 371 1134 261 1096 227 1032 170 921 115 809 60 692 25 575 -10 496 -10 405 -10 324 24 243 59 183 119 123 179 89 259 55 339 55 430 55 499 77 579 99 660 141 748 183 836 236 913 267 959 301 1001 334 1043 375 1083 415 1123 463 1160 511 1197 551 1223 621 1270 696 1305 771 1340 835 1357 899 1374 952 1374 1083 1374 1157 1306 1231 1238 1231 1118 1231 992 1169 854 1107 717 1004 614 933 541 863 499 793 457 737 457 688 457 688 504 688 526 715 565 753 619 799 725 Z"/>
+</font>
+</defs>
+
+<g transform="matrix( 4.4223175048828125, 0, 0, 4.336212158203125, 8.85,11.85) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#logo_0_Layer3_0_FILL"/>
+
+<use xlink:href="#logo_0_Layer3_0_1_STROKES"/>
+</g>
+
+<g filter="url(#Filter_1)" transform="matrix( 0.2261199951171875, 0, 0, 0.230621337890625, -2,-2.75) ">
+<g transform="matrix( 4.4223175048828125, 0, 0, 4.336212158203125, 148.15,274.2) ">
+<g transform="matrix( 1, 0, 0, 1, -6.55,-7.4) ">
+<clipPath id="Mask_Mask_1">
+<rect x="-2" y="-2" width="11.6" height="17.1" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_1)" writing-mode="lr"><tspan x="0" y="10.55" baseline-shift="0%" kerning="auto" font-family="Forte_Regular" font-size="12" fill="#009FB2" xml:space="preserve">E</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, -1,-4.1) ">
+<clipPath id="Mask_Mask_2">
+<rect x="-2" y="-2" width="11.6" height="17.1" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_2)" writing-mode="lr"><tspan x="0" y="10.55" baseline-shift="0%" kerning="auto" font-family="Forte_Regular" font-size="12" fill="#009FB2" xml:space="preserve">C</tspan></text>
+</g>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 33.15,37.85) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#minute_hand_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+
+<g transform="matrix( -1, 0, 0, -0.8140869140625, 33.45,53.75) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#second_hand_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+</g>
+</svg>

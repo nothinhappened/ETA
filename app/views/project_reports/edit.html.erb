@@ -1,0 +1,30 @@
+<% provide(:title, 'Task Reports') %>
+<div class="row pull-right">
+  <%= link_to "Last Month",
+              get_last_month_project_reports_path(id: params[:id], start_date: params[:start_date]),
+              { method: "post", class: "btn btn-default",  }
+  %>
+  <% if @start_date != Time.now.beginning_of_month %>
+      <%= link_to "Next Month",
+                  get_next_month_project_reports_path(id: params[:id], start_date: params[:start_date]),
+                  { method: "post", class: "btn btn-default" }
+      %>
+  <% end %>
+</div>
+<br>
+<h1><%=@project.project_name%></h1>
+<h2><%= DateTime.strptime(params[:start_date], '%Y-%m-%d').strftime("%m/%d/%Y") %> - <%= DateTime.strptime(params[:end_date], '%Y-%m-%d').strftime("%m/%d/%Y") %></h2>
+<% if flash[:error] %>
+    <div class="notice"><%= flash[:error] %></div>
+<% else %>
+<table class="table table-hover table-condensed time_entry_table ">
+      <thead>
+      <tr>
+        <th style="width:80%; border-bottom: none;"> Total Project Time / Total Allocated Time</th>
+        <th style="width:20%; border-bottom: none;"> <%=@project.time_spent_on_project.round(2)%> / <%=@project.time_allocated_to_project%> hrs</th>
+      </tr>
+      </thead>
+</table>
+<br>
+<%= render 'project_report' %>
+<% end %>

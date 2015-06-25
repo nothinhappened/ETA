@@ -1,0 +1,37 @@
+  <div class="panel panel-default" style="margin-top:0px">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse"  href="#collapse_<%=project_id%>">
+          <%= project[:project_title] %>
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapse_<%=project_id%>" class="panel-collapse collapse in">
+      <div class="panel-body time_entry_accordion_body">
+          <table class="table table-bordered table-hover table-condensed time_entry_table">
+            <tbody id="timesheet_table" class="timesheet_table">              
+              <% project[:entries].each do |entry_id,entry| %>
+                <tr>
+                  <td class="col-md-2"><%=link_to entry[:task_name],entry[:task] %></td>
+                  <% entry[:week_timesheet].each do |day_id,day| %>
+                    <td class="col-xs-1 <%= day[:is_unlocked] ? "unlocked" : "locked" %>">                    
+                      <%= text_field(day[:task_id], day[:day_id], class:"time_entry",value: day[:value], readonly: !day[:is_unlocked] ) %>
+                      <%= text_area(day[:task_id],day[:description_id].to_s, style:"display: none", value: day[:description]) %>
+                      
+                      <% color_comment = (day[:description] == "") ? "#999": "#333" %> 
+                      <button type="button" class="btn btn-default btn-xs edit_time_entry_button" 
+                              data-toggle="modal" data-target="#edit_time_entry_comment_dialog"
+                              data-entry-id="<%= day[:task_id].to_s + "_" + day[:description_id] %>"
+                              >
+                        <span class="glyphicon glyphicon-comment" style="color:<%= color_comment %>"></span>
+                      </button>  
+                    </td>
+                  <%end%>                              
+                </tr> 
+              <%end%>                                    
+            </tbody>  
+          </table>
+      </div>
+    </div>
+  </div>

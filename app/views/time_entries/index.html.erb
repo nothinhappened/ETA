@@ -1,0 +1,35 @@
+<h1>Timesheet</h1>
+
+<div class="container"> 
+  <div class="row pull-right"> 
+    
+    
+    <label for="time_entries_datepicker"><span class="glyphicon glyphicon-calendar" style="color:#777"></span></label>
+    <input id="time_entries_datepicker" value="<%= @start_date.strftime("%Y-%m-%d")%>">
+    <%= form_tag( {controller:"time_entries", action:"get_target_week"}, {id: "time_entries_datepicker_form", method:"get"}) do %>
+      <%= hidden_field_tag "target_date", @start_date %>      
+    <%end%>
+
+    <div>
+        <%= link_to "Last Week", 
+            get_last_week_time_entries_path(start_date: @start_date,next_date_direction: 0),
+            { method: "get", class: "btn btn-default" }
+        %>
+        <%= link_to "Next Week", 
+              get_last_week_time_entries_path(start_date: @start_date,next_date_direction: 1),
+              { method: "get", class: "btn btn-default" }
+        %>      
+    </div>
+  </div>
+  
+  <div class="row">            
+    <div class="pull-left">
+      <h3><%= @start_date.strftime("%B %d, %Y") %></h3>
+    </div>
+    
+    <%= render partial:"index_time_entries" %>
+  </div>
+
+</div>    
+
+<%= render partial:"time_entries/description_edit_dialog" %>

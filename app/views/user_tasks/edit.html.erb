@@ -1,0 +1,21 @@
+<% provide(:title, 'Add Tasks to Users') %>
+<h1>Add Tasks to Users</h1>
+<div class="container">
+  <% if check_array_for_errors?(@user_tasks) %>
+      <div id="error_explanation">
+        <strong> One or more errors prevented this tasks from being associated.</strong>
+        <% @user_tasks.each do |user_task| %>
+            <% if user_task.errors.any? %>
+                <ul>
+                  <% user_task.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+            <% end %>
+        <% end %>
+      </div>
+  <% end %>
+  <% users_array = get_users_array %>
+  <%= select_tag(:user, options_for_select(users_array,@user.id.to_i), name: 'user_select', onchange: 'userTasksSelectChange("' + user_tasks_url + '");', style: 'width:300px;')%>
+  <%= render 'user_user_tasks_listboxes' %>
+</div>

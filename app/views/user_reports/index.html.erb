@@ -1,0 +1,8 @@
+<% provide(:title, 'User Reports') %>
+<h1>User Reports</h1>
+
+<%table_headers = ['Name'] %>
+<%#  At some point we should probably switch over to last name first ie Buchholz, Joel--%>
+<%table_contents =@users.map { |user| [[user.full_name, edit_user_report_path(user, start_date: (Time.now.beginning_of_month), end_date: Time.now.beginning_of_month + 1.month - 1.day)]]}%>
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents} %>
+<br/>

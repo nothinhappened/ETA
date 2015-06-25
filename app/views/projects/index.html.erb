@@ -1,0 +1,9 @@
+<% provide(:title, 'View Projects') %>
+<h1>Active Projects</h1>
+
+<%table_headers = ['Title','Text','Edit'] %>
+<%table_contents =@projects.map { |project| [[project.title],[project.description],['Edit', edit_project_path(project)]]}%>
+<%empty_message = 'No Projects have been created yet.' %>
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents,empty_message: empty_message} %>
+<br/>
+<%= link_to 'New Project', new_project_path, class: 'btn btn-small btn-primary', style: 'width:120px;'%>

@@ -1,0 +1,36 @@
+
+
+<div class="panel-group" id="accordion">
+  <table class="table table-bordered table-hover table-condensed time_entry_table">
+    <thead>
+       <tr>
+         <th class="col-md-2"></th>
+         <% weekdays = get_weekdays(@start_date) %>
+         <% weekdays_unlocked = get_weekdays_unlocked(@start_date) %>
+         <% weekdays.each_with_index do |day,i| %>
+            <th class="col-xs-1 <%= weekdays_unlocked[i] ? "unlocked" : "locked" %>"><%= day.strftime("%a") %> <%= day.strftime("%d") %></th>
+         <% end %>
+       </tr>
+    </thead>           
+  </table>
+
+  <%= form_tag( controller:"time_entries", action:"update_timesheet", method:"post",id: "time_entries_form") do %>
+  
+    <% timesheet = get_timesheet(current_user,@start_date) %>
+    <% if timesheet.count == 0 %>    
+      <div>
+        <div colspan="8" style="text-align: center"><p>You have no tasks.. hurray!</p></div>
+      </div>
+    <% else %>
+      <% timesheet.each do |project_id,project| %>
+        <%= render partial:"project_tasks_table", locals:{project_id: project_id,project: project} %>  
+      <%end %>
+    <% end %>
+  
+    <br>
+    <%= hidden_field_tag "start_date", @start_date %>
+    <%= submit_tag("Save Changes", {class: "btn btn-primary"}) %>
+  <%end%>
+</div>
+
+

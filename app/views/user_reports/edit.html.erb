@@ -1,0 +1,40 @@
+<% provide(:title, 'User Reports') %>
+<div class="row pull-right">
+  <%= link_to "Last Month",
+              get_last_month_user_reports_path(id: params[:id],start_date: params[:start_date]),
+              { method: "post", class: "btn btn-default",  }
+  %>
+  <% if @start_date != Time.now.beginning_of_month %>
+      <%= link_to "Next Month",
+                  get_next_month_user_reports_path(id: params[:id], start_date: params[:start_date]),
+                  { method: "post", class: "btn btn-default" }
+      %>
+  <% end %>
+</div>
+
+<br>
+<h2><%=@report.user_name %></h2>
+<h2><%= DateTime.strptime(params[:start_date], '%Y-%m-%d').strftime("%m/%d/%Y") %> - <%= DateTime.strptime(params[:end_date], '%Y-%m-%d').strftime("%m/%d/%Y") %></h2>
+<table class="table table-bordered table-hover table-condensed">
+
+  <caption></caption>
+  <tbody>
+  <tr>
+    <th>Task Name</th>
+    <th>Duration</th>
+  </tr>
+  <% @report.tasks.each do |name, duration| %>
+      <tr>
+        <td><%= name %></td>
+        <td><%= duration.round(2) %></td>
+      </tr>
+  <%end%>
+  <tr>
+    <th>Total Time</th>
+    <th><%= @report.result.round(2) %></th>
+  </tr>
+  </tbody>
+</table>
+
+
+

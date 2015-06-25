@@ -1,0 +1,40 @@
+<div class="panel-group" id="accordion">
+  <% @project.task_reports.each do |report| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" href="#collapse_<%=report.task_id%>"><%= report.task_name %></a>
+          </h4>
+        </div>
+        <div id="collapse_<%=report.task_id%>" class="panel-collapse collapse in">
+          <div class="panel-custom">
+          <table class="table table-bordered table-hover table-condensed time_entry_table">
+              <%report.task_data.list_of_users_and_data.each do |user| %>
+                  <thead>
+                  <tr>
+                    <th style="width:80%"><%=user.name%></th>
+                    <th style="width:20%"><%=user.total_time.round(2)%> hrs</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <%user.comment_time.each do |comment, time| %>
+
+                  <tr>
+                    <td style="width:80%; padding-left: 50px"><%= comment.blank? ? '<i>User did not end a comment.</i>'.html_safe : comment %></td>
+                    <td style="width:20%"><%=time.round(2)%> hrs</td>
+                  </tr>
+                  <% end %>
+                  </tbody>
+              <% end %>
+            <thead>
+            <tr>
+              <th style="width:80%">Total Task Time / Allocated Time</th>
+              <th style="width:20%"><%=report.task_data.time_on_task_total.round(2)%> / <%=report.allocated_task_time%> hrs</th>
+            </tr>
+            </thead>
+          </table>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

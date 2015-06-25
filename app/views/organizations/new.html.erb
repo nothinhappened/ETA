@@ -1,0 +1,30 @@
+<% provide(:title,"Organization Signup") %>
+<h1>Signup Your Organization!</h1>
+
+<% if @organization.errors.any? %>
+    <div id="error_explaination">
+      <strong><%= pluralize(@organization.errors.count, "error") %> prohibited you from signing up:</strong>
+      <ul>
+        <% @organization.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="div6 offset3 form-signin">
+    <%= form_for(@organization) do |f| %>
+        <%= f.text_field :organization_name, placeholder: "Organization Name", class: "form-control" %>
+        <%= f.fields_for :users, @user do |u| -%>
+            <%= u.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+            <%= u.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+            <%= u.text_field :email, placeholder: "Email", class: "form-control"%>
+            <%= u.password_field :password , placeholder:"Password", class: "form-control"%>
+            <%= u.password_field :password_confirmation, placeholder: "Re-enter Password" ,class: "form-control"%>
+        <% end %>
+        <br>
+        <%= f.submit "Create my account", class: "btn btn-large btn-lg btn-primary btn-block" %>
+    <% end %>
+  </div>
+</div>

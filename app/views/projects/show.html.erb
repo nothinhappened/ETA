@@ -1,0 +1,7 @@
+<h1> <%=@project.title%> </h1>
+
+<%task_list = @project.tasks.to_ary %>
+<%table_headers = ['Task Name','Status'] %>
+<%table_contents =task_list.map { |task| [[task.name, task],[task.archived? ? 'Archived' : 'Active']]}%>
+<%empty_message = 'This project has no tasks.' %>
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents,empty_message: empty_message} %>

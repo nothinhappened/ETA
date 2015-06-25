@@ -1,0 +1,10 @@
+<% provide(:title, 'All Users') %>
+<h1>All Users</h1>
+
+<%table_headers = ['Name','Email','Edit','Add Tasks','Delete'] %>
+<%table_contents =@users.map { |user| [[user.full_name, admin_show_user_path(user)],[user.email],['Edit', admin_edit_user_path(user)],['Add Tasks',edit_user_task_path(user)],['Delete',archive_user_path(user),:patch,"Are you sure you'd like to delete " + user.full_name + '?']]}%>
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents} %>
+<br/>
+<%= link_to 'New User', new_user_path,class:'btn btn-small btn-primary', style: 'width:120px;'%>
+<%= link_to 'Restore Deleted User', index_archived_users_path,class:'btn btn-small btn-primary', style: 'width:120px;'%>
+

@@ -1,0 +1,5 @@
+<% provide(:title, 'Edit Task') %>
+<h1>Edit Task</h1>
+
+<%= render partial: 'form', locals: {url_local: task_path, method_local: 'PATCH'} %>
+<%= link_to 'Back', tasks_path %>

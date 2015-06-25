@@ -1,0 +1,54 @@
+<% if false %>
+    This ERB generates a table based on a table_header and a table_contents parameter passed to it
+    The table_headers should be an array of strings, each one representing a header in the table
+    The table_contents is an array of an array of tuples.
+    Each element of table_contents is an array which represents a row in the table.
+    Each row array should be an array of tuples.
+    The length of each row array should be the same os the length of table_headers (since each row has the same number of cells)
+    Each tuple represents a single cell.
+    Each cell tuple takes one of the collowing forms: [cell_contents],[cell_contents,link],[cell_contents,link,method (ie. :post, :patch, :get)],[cell_contents,link,method,comfirm_message]
+
+    The table_contents can easily be generated using the array.map method.
+    Below is an example usage
+
+    <%table_headers = ['Title','Text','Edit','Unarchive'] %>
+    <%table_contents =@tasks.map { |task| [[task.name],[task.description],['Edit', edit_task_path(task)],['Unarchive',unarchive_task_path(task), :patch]]}%>
+    <%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents, empty_message: "No tasks have been archived"} %>
+
+    An optional empty_message can be passed in, which will be rendered if table_contents is empty.
+<%end%>
+<% if (not ((defined? empty_message).nil? or empty_message.nil?)) and ((defined? table_contents).nil? or table_contents.nil? or table_contents.empty?) %>
+    <div><%=empty_message%></div>
+    <br/>
+<%elsif not ((defined? table_contents).nil? or table_contents.nil? or table_contents.empty?) %>
+    <table class="table table-bordered table-hover table-condensed">
+      <%unless (defined? table_headers).nil? or table_headers.nil? %>
+          <tr>
+            <% table_headers.each do |header| %>
+                <th>
+                  <%=header%>
+                </th>
+            <%end%>
+          </tr>
+      <%end%>
+      <% unless (defined? table_contents).nil? or table_contents.nil?%>
+          <% table_contents.each do |row| %>
+              <tr>
+                <% row.each do |tuple| %>
+                    <td>
+                      <% if tuple[1].nil? %>
+                          <%=tuple[0]%>
+                      <% elsif tuple[2].nil? %>
+                          <%= link_to tuple[0], tuple[1] %>
+                      <% elsif tuple[3].nil?%>
+                          <%=link_to tuple[0], tuple[1],method: tuple[2] %>
+                      <%else %>
+                          <%=link_to tuple[0], tuple[1],method: tuple[2], data: {confirm: tuple[3]} %>
+                      <%end%>
+                    </td>
+                <%end%>
+              </tr>
+          <%end%>
+      <%end%>
+    </table>
+<%end%>

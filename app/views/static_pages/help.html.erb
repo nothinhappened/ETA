@@ -1,0 +1,58 @@
+<% provide(:title, 'Help Me') %>
+
+<h1> Help Page </h1>
+<% if signed_in? %>
+
+<% if is_admin?(@current_user) %>
+	<p>This demo will show you how to use Epoch Timesheets with your organization or company.</p>
+
+	<h3>Creating an account for your organization</h3>
+	<ul>
+		<li>From the main page click <b>‘Sign Up’</b>.</li>
+		<li>Enter all of the information required for the application.</li>
+		<li>Click <b>‘Create my account’</b>, and you will be signed into the system.</li>
+	</ul>
+
+	<h3>Creating a new project (optional)</h3>
+	<ul>
+		<li>From the navbar click <b>‘Manage Projects’</b></li>
+		<li>Click the <b>‘New Project’</b> button .</li>
+		<li>Give your project an appropriate title and description.</li>
+		<li>Click ‘Save changes’ when you are done.</li>
+	</ul>
+
+	<h3>Creating a new user (optional)</h3>
+	<ul>
+		<li>From the navbar click <b>‘Manage Users’</b></li>
+		<li>Press the <b>‘New User’</b> button.</li>
+		<li>Enter the information for the user,they will use their email address to log into the system.</li>
+	</ul>
+
+	<h3>Creating a new task</h3>
+	<ul>
+		<li>From the navbar, click <b>‘Manage Tasks’</b></li>
+		<li>Click the <b>‘New task’</b> button.</li>
+		<li>Enter the name, description and select the project for the task. Optionally, you can enter the number of hours allocated for the task to be completed.</li>
+		<li>Users can be added to the task by selecting them, then clicking the <b>‘->‘ arrow</b> button. Press submit when you are finished.</li>
+	</ul>
+
+	<h3>Allowing time to be entered</h3>
+	<ul>
+		<li>From the navbar click <b>‘Configure Timesheets’</b></li>
+		<li>Click <b>‘New Unlocked time’</b></li>
+		<li>Enter the starting and ending unlocked dates, and click <b>‘Create Unlocked Time’</b>. Only time entries between these dates will be editable, this allows you to ‘lock time’ after employees have been paid, or clients billed.</li>
+	</ul>
+	
+<% end %>
+
+<h3>Entering Time</h3>
+<ul>
+	<li>From the homepage, you can enter time into any textbox within an unlocked time period.</li>
+	<li>Comments can be added via the speech bubble button.</li>
+	<li>Save your changes by clicking the <b>'Save'</b> button at the bottom of the screen.</li>
+	<li>Change the currently viewed week by click on the <b>'Last'</b> or <b>'Next'</b> week buttons, or by using the date-picker</li>
+</ul>
+<% end %>
+
+
+

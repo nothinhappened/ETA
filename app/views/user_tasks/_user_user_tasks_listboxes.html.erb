@@ -1,0 +1,24 @@
+<% tasks_selected_array = get_tasks_selected_array %>
+<% tasks_unselected_array = get_tasks_unselected_array  %>
+<%#If your IDE shows an error here, your IDE is wrong. Get a new IDE.%>
+<%= form_tag user_task_path, method: :patch, name:'user_tasks_form' do %>
+    <%= hidden_field_tag 'selected_tasks_json' %>
+    <table>
+      <tr>
+        <td>
+          <%= label_tag 'Unassigned Tasks' %><br/>
+          <%= select_tag(:task, options_for_select(tasks_unselected_array), multiple: true, name: 'unselected_tasks', style: 'width:300px; height: 300px;') %>
+        </td>
+        <td>
+          <input type="button" onClick="lb_move(this.form.unselected_tasks,this.form.selected_tasks)" value="->">
+          <br/>
+          <input type="button" onClick="lb_move(this.form.selected_tasks,this.form.unselected_tasks)" value="<-">
+        </td>
+        <td>
+          <%= label_tag 'Assigned Tasks' %><br/>
+          <%= select_tag(:selected_tasks, options_for_select(tasks_selected_array), multiple:true, name:'selected_tasks', style: 'width:300px; height: 300px;') %>
+        </td>
+      </tr>
+    </table>
+    <input type="button" onClick="userTasksSubmitForm()" value="Submit">
+<% end %>

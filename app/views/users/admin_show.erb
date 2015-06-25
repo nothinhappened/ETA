@@ -1,0 +1,28 @@
+<% provide(:title, @user.full_name + "'s Profile") %>
+<h1><%=@user.full_name%>'s Profile</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><h3>Name: </h3></div>
+        <div class="col-xs-4 col-md-6"><h3><%= @user.full_name %></h3></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><strong>Email:</strong></div>
+        <div class="col-xs-4 col-md-6"><%= @user.email %></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><strong>User Type:</strong></div>
+        <div class="col-xs-4 col-md-6"><%= @user.user_type_string %></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><strong>Creation time:</strong></div>
+        <div class="col-xs-4 col-md-6"><%= @user.created_at %></div>
+    </div>
+</div>
+
+<% table_headers = ['Task name', 'Time Spent', 'Details'] %>
+<% table_contents = @user.tasks.map { |task| [[task.name,task], [get_total_time_by_task(task.id)],['View more details',UserTask.by_task(task.id).by_user(@user.id).first]] } %>
+<% empty_message = 'User has no tasks assigned to them.' %>
+
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents, empty_message:empty_message} %>
+
+<%= link_to 'Edit Info', admin_edit_user_path(@user), class: 'btn btn-small btn-primary', style: 'width:120px;'%>

@@ -1,0 +1,60 @@
+SENG499
+
+
+Useful commands:
+---------------------
+Command to start a local server to view the project 
+Make sure you are in the root directory of the rails project
+(i.e at the same level as this readme file )
+
+$> rails s -b127.0.0.1
+Now open your browser and go to:
+	127.0.0.1:3000
+
+rails generate scaffold <name>	// Used to create scaffolding code
+rails generate controller <name>
+rails generate model <name> <field>:<type>
+
+rake db:reset  // resets the db ( clearing all tables )
+rake db:drop	// drop all tables from the db, destroy the db
+rake db:create // create a db
+rake db:migrate // use the ruby scripts in db/migrate to create new tables
+rake db:populate  // Use this command to populate the db with fake data.
+rake routes	// display all available routes for the application
+		// what does 127.0.0.1:3000/home map to?
+
+// Explanation of important files and folders
+./app 
+	This folder contains basically all of our application code
+	It will contain our:
+		views		: html template pages
+		controllers	: object that sets variables and routes pages
+		assets		: css, javascript files
+		models		: ruby objects acting as interfaces to the db
+
+./config/routes.rb
+	Contains the mapping between requests to controller
+	e.g. 
+		root "static_pages#home"
+	When a client asks for the root, the call will be directed to 
+	the "static_pages" controller and call the "home" method in th 
+	controller.
+
+./db/migrate/*
+	The files in here define a way to create tables in the rails project.
+
+./Gemfile
+	This file contains a list of depencies that our rails project uses.
+	It is here where we can define third-party modules/libraries to be 
+	used/intergrated into our project.
+	Call the following commands to install the "gems"
+	$> bundle update
+	$> bundle install
+
+
+Gotchas on windows:
+1.) In the Gemfile be sure to include the following gems
+gem 'tzinfo-data'
+gem 'tzinfo'
+
+

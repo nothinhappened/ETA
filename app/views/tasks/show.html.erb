@@ -1,0 +1,47 @@
+<% provide(:title, 'View Task Details') %>
+
+<% org_name = @task.organization.organization_name %>
+
+<% user_list = User.get_users_associated_with_task(@task.id) %>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><h3>Task: </h3></div>
+        <div class="col-xs-4 col-md-6"><h3><%= @task.name %></h3></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><strong>Task description:</strong></div>
+        <div class="col-xs-4 col-md-6"><%= @task.description %></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><strong>Organization:</strong></div>
+        <div class="col-xs-4 col-md-6"><%= org_name %></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><strong>Creation time:</strong></div>
+        <div class="col-xs-4 col-md-6"><%= @task.created_at %></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><strong>Time Allocated:</strong></div>
+        <div class="col-xs-4 col-md-6"><%= render 'progress_bar' %></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2 text-right"><strong>Assigned users:</strong></div>
+        <div class="col-xs-4 col-md-6">
+            <ul>
+                <% user_list.each do |user| %>
+                    <li><%= link_to user.full_name, admin_show_user_path(user.id), method: :get %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-2"></div><div class="col-md-6">
+            <%= link_to 'Edit task', edit_task_path(@task), class: 'btn btn-small btn-primary', style: 'width:120px;'%>
+        </div>
+    </div>
+</div>
+
+<br/>
+

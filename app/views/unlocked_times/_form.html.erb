@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="div6 offset3">
+
+    <%= form_for(@unlocked_time) do |f| %>
+      <%= render "shared/error_messages",  object: f.object%>
+      
+      <div class="field">
+        <%= f.label :start_time %><br>
+        <%= f.date_select :start_time %>
+      </div>
+      <div class="field">
+        <%= f.label :end_time %><br>
+        <%= f.date_select :end_time %>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

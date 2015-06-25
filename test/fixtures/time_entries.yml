@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2014-05-30 14:34:54
+  duration: 2014-05-30 14:34:54
+  organization_id: 
+  task_id: 
+  user_id: 
+
+two:
+  start_time: 2014-05-30 14:34:54
+  duration: 2014-05-30 14:34:54
+  organization_id: 
+  task_id: 
+  user_id: 

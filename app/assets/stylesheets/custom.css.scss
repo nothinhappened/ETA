@@ -1,0 +1,74 @@
+$grayMediumLight: #eaeaea;
+$grayLight: #999;
+$gray: #555;
+$grayDarker: #222;
+
+
+/* logo header button thing*/
+#logo {
+	float: left;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 1.7 em;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	padding-top: 9px;
+	font-weight: bold;
+	line-height: 1;
+	background-color: #333;
+
+	&:hover {
+		color: #fff;
+		text-decoration: none;
+		background-color: #777;
+	}
+}
+
+/* footer styling */
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	padding-left: 10%;
+	padding-right: 10%;
+	border-top: 1px solid $grayMediumLight;
+	color: $grayLight;
+
+	a{
+		color: $gray;
+		&:hover{
+			color: $grayDarker;
+		}
+	}
+	small{
+		float:left;
+	}
+
+	ul {
+		float:right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 10px;
+		}
+	}
+}
+
+
+/* Debug styling */
+@mixin box_sizing{
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box
+}
+
+.debug dump{
+	clear: both;
+	float:left;
+	width:100%;
+	margin-top: 45px;
+	margin-left: 50px;
+	margin-right: 50px;
+	@include box-sizing;
+}
+

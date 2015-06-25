@@ -1,0 +1,9 @@
+<% provide(:title, 'View Archived Tasks') %>
+<h1>Archived Tasks</h1>
+
+<%table_headers = ['Title','Text','Edit','Unarchive'] %>
+<%table_contents =@tasks.map { |task| [[task.name],[task.description],['Edit', edit_task_path(task)],['Unarchive',unarchive_task_path(task), :patch]]}%>
+<%empty_message = 'No archived tasks exist' %>
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents, empty_message: empty_message} %>
+
+<%= link_to 'View Unarchived Tasks', tasks_path, class: 'btn btn-small btn-primary' %>

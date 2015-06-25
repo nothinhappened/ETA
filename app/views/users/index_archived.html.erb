@@ -1,0 +1,9 @@
+<% provide(:title, 'Deleted Users') %>
+<h1>Deleted Users</h1>
+
+<%table_headers = ['Name', 'Email', 'Edit', 'Restore'] %>
+<%table_contents =@users.map { |user| [[user.full_name],[user.email],['Edit', admin_edit_user_path(user)],['Restore',unarchive_user_path(user), :patch]]}%>
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents,empty_message: 'No users have been deleted.'} %>
+<br/>
+<%= link_to 'Back', users_path,class:'btn btn-small btn-primary'%>
+

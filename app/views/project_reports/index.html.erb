@@ -1,0 +1,8 @@
+<% provide(:title, 'Project Reports') %>
+<h1>Task Reports</h1>
+
+<%table_headers = ['Name', 'Description'] %>
+<%table_contents =@projects.map { |project| [[project.title, edit_project_report_path(project, start_date: (Time.now.beginning_of_month), end_date: Time.now.beginning_of_month + 1.month - 1.day)], [project.description]]}%>
+<%empty_message = 'No Projects have been created yet.' %>
+<%= render partial: 'shared/display_table', locals: {table_headers: table_headers, table_contents: table_contents,empty_message: empty_message} %>
+<br/>

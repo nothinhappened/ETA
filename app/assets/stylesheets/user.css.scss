@@ -1,0 +1,108 @@
+// Place all the styles related to the User controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.user_gravatar_section {
+  overflow: auto;
+}
+
+@mixin box_sizing{
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box
+}
+
+
+aside {
+	textarea {
+		height: 100px;
+		margin-bottom: 5px;
+	}
+
+	section {
+		padding: 10px 0;
+		border-top: 1px solid #999999;
+		&:first-child {
+			border:0;
+			padding-top:0;
+		}
+		span {
+			display:block;
+			margin-bottom: 3px;
+			line-height:1;
+		}
+		h1 {
+			font-size: 1.4em;
+			text-align: left;
+			letter-spacing: -1px;
+			margin-bottom: 3px;
+			margin-top: 0px;
+		}
+	}
+	//background-color: #999	
+}
+
+.gravatar {
+	float:left;
+	margin-right:10px
+}
+
+
+/* signup page css
+input, textarea, select, .uneditable-input{
+	border: 1px solid #bbb;
+	width: 100%;
+	margin-bottom: 15px;
+	@include box-sizing;
+}
+
+input {
+	height: auto;
+}
+*/
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error !optional;
+}
+
+	.users {
+		list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid #222;
+		&:last-child{
+			border-bottom: 1px solid #222;
+		}
+	}
+}
